@@ -12,10 +12,12 @@ def game_loop(screen, player):
         for event in pygame.event.get(): #makes window close button work
             if event.type == pygame.QUIT:
                 return
+        dt = clock.tick(60) / 1000 #pauses game loop to 1/60 second
         screen.fill(color="black")
         player.draw(screen)
+        player.update(dt)
         pygame.display.flip() # refreshes screen
-        dt = clock.tick(60) / 1000 #pauses game loop to 1/60 second
+        
         
         print(f"Delta time: {dt} seconds")
 
